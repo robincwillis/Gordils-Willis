@@ -1,18 +1,15 @@
 // Hyperlink Site Specific Styles
 
 body {
-	font-size: 14px;
+	overflow-x: hidden;
 	@include respond($md) {
 		font-size: 16px;
 	}
-	@include respond($xlg + 300) {
-		font-size: 1.25vw;
-	}
-	@include respond($max-site-width) {
-		font-size: 18px;
+	@include respond($xlg) {
+		// font-size: 18px;
 	}
 	@include respond($huge) {
-		font-size: 20px;
+		font-size: 18px;
 	}
 }
 
@@ -23,24 +20,24 @@ body {
 	bottom: 0;
 	left: 0;
 	z-index: 10;
-	background: $bg-color;
+	background: #000;
 	visibility: visible;
 	opacity: 1;
-	transition: opacity 0.5s ease-in-out;
+	transition: opacity 1s .25s ease-in-out, visibility 1s .25s ease-in-out;
 
 	.loader {
-		width: 300px;
-		height: 300px;
+		width: 70%;
+		height: auto;
 		svg {
-			width: 300px;
-			height: 300px;
+			width: 100%;
 			* {
-				fill: #ddd;
+				fill: #fff;
 			}
 		}
 	}
 
 	&.complete-start {
+		visibility: hidden;
 		opacity: 0;
 	}
 
@@ -51,16 +48,20 @@ body {
 }
 
 #content {
-	padding-bottom: (100% - $site-width) + 5;
-	@include respond($md) {
-		padding-bottom: (100% - $site-width)/1.25;
-	}
+	// padding-bottom: (100% - $site-width) + 5;
+	// @include respond($md) {
+	// 	padding-bottom: (100% - $site-width)/1.25;
+	// }
 }
 
 p {
 	a {
-		padding-bottom: 3px;
-		border-bottom: 1px solid $hr-color;
+		padding-bottom: .2em;
+		border-bottom: 1px solid lighten($text-color, 60%);
+		&:hover {
+			color: $text-color;
+			border-bottom-color: $text-color;
+		}
 	}
 }
 
@@ -75,6 +76,7 @@ i {
 .top-splash {
 	display: block;
 	height: 100vh;
+	min-height: 300px;
 	background-color: $primary-color;
 	background-color: #000;
 	background-size: cover;
@@ -82,6 +84,9 @@ i {
 	color: #fff;
 	position: relative;
 	z-index: 2;
+	@include respond($md) {
+		min-height: auto;
+	}
 
 	&:hover {
 		color: #fff;
@@ -90,6 +95,8 @@ i {
 
 	#nav-logo {
 		svg {
+			height: .9em;
+			width: auto !important;
 			fill : #fff;
 			width: 150px;
 		}
@@ -100,7 +107,6 @@ i {
 		z-index: 3;
 		position: fixed;
 		font-weight: 700;
-    font-size: 22px;
     height: 100%;
     width: 100%;
     pointer-events:none;
@@ -110,9 +116,12 @@ i {
 
 	.navigation li {
 		position:absolute;
-	  padding: $gutter/2;
+	  padding: $gutter;
 	  cursor:pointer;
 	  pointer-events:all;
+	  font-size: 1em;
+	  line-height: 1em;
+	  font-weight: 400;
 
 		transition : color, $med-speed, ease-in-out;
 		svg {
@@ -123,7 +132,9 @@ i {
 	  	color:#000;
 	  	&#nav-logo {
 		  	svg {
-		  		fill : #000;
+		  		* {
+		  			fill: #000;
+		  		}
 		  	}
 	  	}
 
@@ -151,46 +162,30 @@ i {
 	#about {
 		height: 100%;
 		h2 {
-			opacity: 0;
+			// opacity: 0;
 			transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-			transform: translateY(-20px);
-			//transition:;
+			line-height: 1.3em;
+			letter-spacing: -.02em;
+			max-width: 21em;
+			display: inline-block;
+			// transform: scale(1.1);
+			transform-origin: center;
+			font-size: 1.5em;
+			@include respond($md) {
+				font-size: 2em;
+			}
+			@include respond($xlg) {
+				font-size: 2.5em;
+			}
 		}
 		&.visible {
 			h2 {
 				opacity: 1;
-				transform: translateY(0);
+				transform: scale(1);
 			}
 		}
 	}
 
-	h1, h2 {
-		font-size: 6vw;
-		letter-spacing: -.03em;
-		line-height: 1em;
-		margin: 0;
-	}
-	h1 {
-		font-weight: 700;
-		font-style: italic;
-		&:after {
-			content: ' ';
-		}
-	}
-	h2 {
-    line-height: 1em;
-    margin: 0;
-    text-align: left;
-		font-weight: 100;
-		text-align: left;
-	}
-	@include respond($lg) {
-		height: 100vh;
-		h1, h2 {
-			font-size: 5.5vw;
-			display: inline;
-		}
-	}
 }
 
 .lg p,
@@ -204,31 +199,23 @@ p.lg {
 }
 
 .section {
-	padding-top: (100% - $site-width);
 	position: relative;
-	@include respond($md) {
-		padding-top: (100% - $site-width) / 1.5;
-	}
-	// &.grey {
-	// 	background: #f4f4f4;
-	// 	padding-bottom: (100% - $site-width);
-	// 	margin-top: (100% - $site-width);
-	// 	@include respond($md) {
-	// 		padding-bottom: (100% - $site-width) / 1.6;
-	// 		margin-top: (100% - $site-width) / 1.6;
-	// 	}
-	// }
 	.title-col {
 		position: static !important;
+		font-size: 2em;
+		text-align: center;
+		@include respond($md) {
+			font-size: 2.5em;
+		}
 	}
 	.section-title {
 		font-size: 1em;
-		color: $primary-color;
-		margin-bottom: 1em;
+		// color: $primary-color;
+		margin: 0 0 1em;
 	}
-	.right-content-wrap {
-		max-width: 33.5em;
-	}
+	// .right-content-wrap {
+	// 	max-width: 33.5em;
+	// }
 }
 
 hr {
@@ -272,6 +259,8 @@ hr {
 
 #work-images {
 
+	padding-top: (100% - $site-width) / 1.75;
+
 	img {
 		width:100%;
 	}
@@ -297,9 +286,43 @@ hr {
 }
 
 #services {
-
+	padding: 2em 0 2em;
+	@include respond($md) {
+		padding: 0;
+		min-height: 50vh;
+	}
+	.service-list {
+		li {
+			text-align: center;
+			line-height: $base-line-height;
+			@include respond($md) {
+				width: 50%;
+			}
+			@include respond($xlg) {
+				width: 33.333%;
+			}
+		}
+	}
 }
 
 #about {
+	padding: 4em 0 2em;
+	.bio-1 {
+		margin-bottom: 3em;
+		@include respond($md) {
+			margin-bottom: 0;
+		}
+	}
+	@include respond($md) {
+		padding: 0;
+		min-height: 100vh;
+	}
+}
 
+#contact {
+	@include respond($md) {
+		padding: 0;
+		min-height: 100vh;
+	}
+	padding: 2em 0 6em;
 }
