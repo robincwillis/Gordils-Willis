@@ -79,7 +79,7 @@ function bindEvents () {
 
 		setTimeout( () => {
 		 loader.className = "complete-end";
-		}, 2000)
+		}, 500)
 	});
 
 
