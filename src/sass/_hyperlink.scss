@@ -102,6 +102,10 @@ i {
 		}
 	}
 
+	#canvas {
+		display: block;
+	}
+
 
 	.navigation {
 		z-index: 3;
@@ -160,9 +164,12 @@ i {
 	}
 
 	#about {
+		position: absolute;
+    z-index: 1;
+    width: 100%;
 		height: 100%;
 		h2 {
-			// opacity: 0;
+			opacity: 0;
 			transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 			line-height: 1.3em;
 			letter-spacing: -.02em;

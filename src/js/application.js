@@ -1,10 +1,26 @@
 import mainTemplate from 'templates/views/main.hbs';
 import imagesLoaded from 'imagesloaded';
 import Velocity from 'velocity-animate';
+import moire from 'moire';
 
 import "sass/main";
 
 console.time('imagesLoaded');
+
+function initMoire() {
+	var proX = Math.floor((Math.random() * 5) + 1);
+	var proY = Math.floor((Math.random() * 5) + 1);;
+	var sizeX = Math.floor((Math.random() * 5) + 1);;
+	var sizeY = Math.floor((Math.random() * 5) + 1);;
+	moire(proX, proY, sizeX, sizeY);
+}
+
+function resizeCanvas() {
+	var canvas = document.getElementById('canvas');
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+	initMoire();
+}
 
 function showAbout () {
 	document.getElementById('about').className = "visible";
@@ -88,18 +104,19 @@ function bindEvents () {
 	console.log(	document.getElementById('nav-logo'));
 	document.getElementById('nav-logo')
 	.addEventListener('click', (event) => {
-		console.log('clicked logo')
+		initMoire();
 		scrollToTop();
 	})
 
 	//About
 	document.getElementById('nav-about')
 	.addEventListener('click', (event) => {
-		console.log(document.getElementById('about').className);
 
 		if (document.getElementById('about').className === "visible") {
 			hideAbout();
+			initMoire();
 		} else {
+			initMoire();
 			scrollToTop();
 			showAbout();
 		}
@@ -109,27 +126,23 @@ function bindEvents () {
 	document.getElementById('nav-works')
 	.addEventListener('click', (event) => {
 		console.log('clicked works');
+		initMoire();
 		scrollToWorks();
 	})
 	//Contact
 	document.getElementById('nav-contact')
 	.addEventListener('click', (event) => {
+		initMoire();
 		scrollToContact();
 	})
 
 	window.addEventListener('scroll', () =>{
 		setNavigationStyle();
-		//setSplashHeight($('.splash'));
-		//windowHeight = $(window).height();
-	})
+	});
 
-	// doument.addEventListener("onclick", function(event){
-
-	// });
+	window.addEventListener('resize', resizeCanvas, false);
 
 }
-
-
 
 //Load App
 document.addEventListener("DOMContentLoaded", () => {
@@ -137,6 +150,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	div.innerHTML = mainTemplate({username: "teeeeest"});
 	document.body.appendChild(div);
 	bindEvents();
+	resizeCanvas();
+	initMoire();
 });
 
 
