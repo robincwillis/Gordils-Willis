@@ -48,10 +48,10 @@ body {
 }
 
 #content {
-	padding-bottom: (100% - $site-width) + 5;
-	@include respond($md) {
-		padding-bottom: (100% - $site-width)/1.25;
-	}
+	// padding-bottom: (100% - $site-width) + 5;
+	// @include respond($md) {
+	// 	padding-bottom: (100% - $site-width)/1.25;
+	// }
 }
 
 p {
@@ -269,6 +269,9 @@ hr {
 }
 
 #services {
+	@include respond($md) {
+		min-height: 100vh;
+	}
 	li {
 		text-align: center;
 		@include respond($md) {
@@ -280,9 +283,14 @@ hr {
 }
 
 #about {
-
+	@include respond($md) {
+		min-height: 100vh;
+	}
 }
 
-#contant {
+#contact {
+	@include respond($md) {
+		min-height: 100vh;
+	}
 	padding: 4em 0 2em;
 }
