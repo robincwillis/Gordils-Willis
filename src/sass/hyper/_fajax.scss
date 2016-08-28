@@ -15,7 +15,7 @@
 	background-color: $bg-color;
 	text-align: center;
 	z-index: 9;
-	@include transition(all 1.5s 1s ease-in-out);
+	// @include transition(all 1.5s 1s ease-in-out);
 	visibility: visible;
 	opacity: 1;
 	// hide for testing

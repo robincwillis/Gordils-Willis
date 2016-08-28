@@ -52,7 +52,7 @@ const config = {
 					loader: 'svg-inline'
 				},
 				{
-					test:	/\.(otf|eot|ttf|woff)$/,
+					test:	/\.(otf|eot|ttf|woff|woff2)$/,
 					//loader: 'url-loader?limit=1024&name=fonts/[name].[ext]'
 					loader: 'file-loader?name=fonts/[name].[ext]'
 				},

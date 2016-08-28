@@ -2,7 +2,7 @@
 $site-width : 90%;
 $max-site-width : 1500px;
 $columns : 12;
-$gutter : 3%; // this can be in % or px
+$gutter : 5%; // this can be in % or px
 
 // Breakpoints
 $sm : 450;
@@ -16,7 +16,7 @@ $bg-color : #fff;
 $primary-color : rgba(0, 0, 180, 1);
 $text-color : #363636;
 $light-text-color : lighten($text-color, 40%);
-$hr-color : lighten($text-color, 60%);
+$hr-color : $text-color;
 $hr-styles : 1px solid $hr-color;
 $accordion-styles : 1px solid $light-text-color;
 
@@ -28,10 +28,10 @@ $nav-color : $text-color;
 $nav-hover-color : $primary-color;
 
 // Typography
-$main-font: 'Graphik', 'Helvetica Neue', sans-serif;
+$main-font: 'Brown', 'Helvetica Neue', sans-serif;
 $secondary-font: $main-font;
 $base-font-size : 16px;
-$base-line-height : 1.5em;
+$base-line-height : 1.4em;
 
 // Text Highlights
 $highlight-bg : $light-text-color;
