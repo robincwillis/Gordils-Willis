@@ -21,6 +21,13 @@ const config = {
 
 	plugins: [
 
+		new webpack.optimize.UglifyJsPlugin({
+			compress: {
+				screw_ie8: true,
+				warnings: false
+			}
+		}),
+
 		new ExtractTextPlugin('[name].css'),
 
 		new HtmlWebpackPlugin({
@@ -59,7 +66,7 @@ const config = {
 				},
 				{
 					test:	/\.scss$/,
-					loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!resolve-url-loader!sass-loader?sourceMap')
+					loader: ExtractTextPlugin.extract('style-loader', 'css-loader?minimize!postcss-loader!resolve-url-loader!sass-loader?sourceMap')
 				},
 				{
 					test:	/\.json$/,

@@ -66,6 +66,20 @@ function setNavigationStyle () {
 
 
 function bindEvents () {
+
+	imagesLoaded( 'body', () => {
+		console.log('images loaded');
+		console.timeEnd('imagesLoaded');
+		// images have loaded
+		var loader = document.getElementById('pageLoader');
+		loader.className = "complete-start";
+
+		setTimeout( () => {
+		 loader.className = "complete-end";
+		}, 500)
+	});
+
+
 	console.log('bind events called');
 	//Logo
 	console.log(	document.getElementById('nav-logo'));
@@ -123,17 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-imagesLoaded( 'body', () => {
-	console.log('images loaded');
-	console.timeEnd('imagesLoaded');
-	// images have loaded
-	var loader = document.getElementById('pageLoader');
-	loader.className = "complete-start";
 
-	setTimeout( () => {
-	 loader.className = "complete-end";
-	}, 500)
-});
 
 
 
