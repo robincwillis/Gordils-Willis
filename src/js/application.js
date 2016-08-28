@@ -1,5 +1,6 @@
 import mainTemplate from 'templates/views/main.hbs';
 import imagesLoaded from 'imagesloaded';
+import Velocity from 'velocity-animate';
 
 import "sass/main";
 
@@ -13,27 +14,23 @@ function hideAbout () {
 	document.getElementById('about').className = "";
 }
 
-function scrollTo(element, to, duration) {
-	if (duration <= 0) return;
-	var difference = to - element.scrollTop;
-	var perTick = difference / duration * 10;
-
-	setTimeout(function() {
-			element.scrollTop = element.scrollTop + perTick;
-			if (element.scrollTop === to) return;
-			scrollTo(element, to, duration - 10);
-	}, 10);
+function scrollTo(element, duration) {
+	Velocity(element, "scroll", { duration: duration, easing: "ease-in-out" });
 }
 
+function scrollToContact () {
+	var works = document.getElementById("contact");
+	scrollTo(works, 500);
+}
 
 function scrollToWorks () {
 	var works = document.getElementById("work-images");
-	var worksTop = works.getBoundingClientRect().top;
-	scrollTo(document.body, worksTop, 250);
+	scrollTo(works, 500);
 }
 
 function scrollToTop () {
-
+	var page = document.getElementById("page");
+	scrollTo(page, 500);
 }
 
 function setNavigationStyle () {
@@ -41,7 +38,13 @@ function setNavigationStyle () {
 	var offset = window.pageYOffset;
 	var windowHeight = window.window.innerHeight;
 
-	navItems.forEach( (item) => {
+	var forEach = function (array, callback, scope) {
+	  for (var i = 0; i < array.length; i++) {
+	    callback.call(scope, i, array[i]); // passes back stuff we need
+	  }
+	};
+
+	forEach(navItems, (index, item) => {
 		var itemTop = item.firstElementChild.getBoundingClientRect().top;
 		if(offset > windowHeight - itemTop) {
 			item.className = !item.className.includes(' invert') ? item.className.concat(' invert') : item.className;
@@ -86,7 +89,7 @@ function bindEvents () {
 	document.getElementById('nav-logo')
 	.addEventListener('click', (event) => {
 		console.log('clicked logo')
-		scrollTo(document.body, 0, 250);
+		scrollToTop();
 	})
 
 	//About
@@ -97,6 +100,7 @@ function bindEvents () {
 		if (document.getElementById('about').className === "visible") {
 			hideAbout();
 		} else {
+			scrollToTop();
 			showAbout();
 		}
 
@@ -110,7 +114,7 @@ function bindEvents () {
 	//Contact
 	document.getElementById('nav-contact')
 	.addEventListener('click', (event) => {
-
+		scrollToContact();
 	})
 
 	window.addEventListener('scroll', () =>{

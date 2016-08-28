@@ -10,7 +10,7 @@
   transform: $transform;
 }
 
-// Transition 
+// Transition
 @mixin transition($transition: all .2s ease-in-out) {
   -webkit-transition: $transition;
   -moz-transition:    $transition;
@@ -20,7 +20,7 @@
 // Animation
 @mixin keyframes($name) {
   @-webkit-keyframes #{$name} {
-    @content; 
+    @content;
   }
   @-moz-keyframes #{$name} {
     @content;
@@ -30,7 +30,7 @@
   }
   @keyframes #{$name} {
     @content;
-  } 
+  }
 }
 
 @mixin animation($animate...) {
@@ -130,14 +130,16 @@
 }
 
 @mixin clearfix() {
-  *zoom:1;
-  &:before, 
+  * {
+    zoom:1;
+  }
+  &:before,
   &:after {
-    content: ""; 
-    display: table; 
+    content: "";
+    display: table;
   }
   &:after {
-    clear: both; 
+    clear: both;
   }
 }
 

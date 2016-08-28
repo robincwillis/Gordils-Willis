@@ -75,7 +75,6 @@ i {
 .top-splash {
 	display: block;
 	height: 100vh;
-	min-height: 100vw;
 	background-color: $primary-color;
 	background-color: #000;
 	background-size: cover;
@@ -187,7 +186,6 @@ i {
 	}
 	@include respond($lg) {
 		height: 100vh;
-		min-height: auto;
 		h1, h2 {
 			font-size: 5.5vw;
 			display: inline;
