@@ -271,6 +271,11 @@ hr {
 }
 
 #work-images {
+
+	img {
+		width:100%;
+	}
+
 	.inline-grid {
 		margin-bottom: -$gutter;
 	}
