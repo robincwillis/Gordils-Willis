@@ -23,7 +23,7 @@ body {
 	background: #000;
 	visibility: visible;
 	opacity: 1;
-	transition: opacity 1s 1s ease-in-out, visibility 1s 1s ease-in-out;
+	transition: opacity 1s .25s ease-in-out, visibility 1s .25s ease-in-out;
 
 	.loader {
 		width: 70%;
@@ -132,7 +132,9 @@ i {
 	  	color:#000;
 	  	&#nav-logo {
 		  	svg {
-		  		fill : #000;
+		  		* {
+		  			fill: #000;
+		  		}
 		  	}
 	  	}
 
@@ -166,6 +168,8 @@ i {
 			letter-spacing: -.02em;
 			max-width: 21em;
 			display: inline-block;
+			transform: scale(1.1);
+			transform-origin: center;
 			@include respond($lg) {
 				font-size: 2.5em;
 			}
@@ -173,7 +177,7 @@ i {
 		&.visible {
 			h2 {
 				opacity: 1;
-				transform: translateY(0);
+				transform: scale(1);
 			}
 		}
 	}
@@ -275,7 +279,7 @@ hr {
 	padding: 2em 0 2em;
 	@include respond($md) {
 		padding: 0;
-		min-height: 100vh;
+		min-height: 50vh;
 	}
 	.service-list {
 		li {
