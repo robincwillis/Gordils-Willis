@@ -17,7 +17,6 @@ body {
 }
 
 #pageLoader {
-	display: none;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -27,17 +26,28 @@ body {
 	background: $bg-color;
 	visibility: visible;
 	opacity: 1;
+	transition: opacity 0.5s ease-in-out;
+
 	.loader {
-		width: 100px;
-		height: 100px;
+		width: 300px;
+		height: 300px;
 		svg {
-			width: 100px;
-			height: 100px;
+			width: 300px;
+			height: 300px;
 			* {
 				fill: #ddd;
 			}
 		}
 	}
+
+	&.complete-start {
+		opacity: 0;
+	}
+
+	&.complete-end {
+		display: none;
+	}
+
 }
 
 #content {
@@ -64,7 +74,7 @@ i {
 
 .top-splash {
 	display: block;
-	height: 75vh;
+	height: 100vh;
 	min-height: 100vw;
 	background-color: $primary-color;
 	background-color: #000;
@@ -73,47 +83,88 @@ i {
 	color: #fff;
 	position: relative;
 	z-index: 2;
-	svg {
-		fill : #fff;
-		width: 150px;
-	}
-
-	.navigation {
-		position: absolute;
-		font-weight: 700;
-    font-size: 22px;
-    height: 100%;
-    width: 100%;
-	}
-
-	.navigation li {
-		position:absolute;
-	  padding: 30px;
-	}
-
-	.top {
-		top:0;
-	}
-
-	.bottom {
-		bottom:0;
-	}
-
-	.right {
-		right:0;
-		text-align: right;
-	}
-
-	.left {
-		left:0;
-	}
-
 
 	&:hover {
 		color: #fff;
 		border: none;
-		//cursor: url('../assets/images/down-arrow.svg'), auto;
 	}
+
+	#nav-logo {
+		svg {
+			fill : #fff;
+			width: 150px;
+		}
+	}
+
+
+	.navigation {
+		z-index: 3;
+		position: fixed;
+		font-weight: 700;
+    font-size: 22px;
+    height: 100%;
+    width: 100%;
+    pointer-events:none;
+
+
+	}
+
+	.navigation li {
+		position:absolute;
+	  padding: $gutter/2;
+	  cursor:pointer;
+	  pointer-events:all;
+
+		transition : color, $med-speed, ease-in-out;
+		svg {
+			transition : fill, $med-speed, ease-in-out;
+		}
+
+	  &.invert {
+	  	color:#000;
+	  	&#nav-logo {
+		  	svg {
+		  		fill : #000;
+		  	}
+	  	}
+
+	  }
+
+		&.top {
+			top:0;
+		}
+
+		&.bottom {
+			bottom:0;
+		}
+
+		&.right {
+			right:0;
+			text-align: right;
+		}
+
+		&.left {
+			left:0;
+		}
+
+	}
+
+	#about {
+		height: 100%;
+		h2 {
+			opacity: 0;
+			transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+			transform: translateY(-20px);
+			//transition:;
+		}
+		&.visible {
+			h2 {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+	}
+
 	h1, h2 {
 		font-size: 6vw;
 		letter-spacing: -.03em;

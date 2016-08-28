@@ -11,10 +11,6 @@ img {
   max-width: 100%;
 }
 
-svg, svg * {
-  @include transition((all $med-speed ease-in-out));
-}
-
 #page{
 }
 

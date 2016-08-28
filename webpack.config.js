@@ -15,7 +15,7 @@ const config = {
 		output: {
 			filename: 'app.js',
 			path: __dirname + '/dist',
-			publicPath: '/dist/'
+			publicPath: '/Gordils-Willis/dist/'
 		},
 
 
@@ -59,7 +59,7 @@ const config = {
 				},
 				{
 					test:	/\.scss$/,
-					loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader')
+					loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!resolve-url-loader!sass-loader?sourceMap')
 				},
 				{
 					test:	/\.json$/,
@@ -104,7 +104,7 @@ const config = {
 			path.resolve(__dirname, 'src/assets'),
 			path.resolve(__dirname, 'node_modules')
 		],
-		extensions: ['', '.js', '.json', '.hbs', '.jpg', '.png', '.svg', '.sass', '.scss'],
+		extensions: ['', '.js', '.json', '.hbs', '.jpg', '.png', '.svg', '.sass', '.scss', '.css'],
 		alias: {
 			'_'				: 'underscore/underscore'
 		}
