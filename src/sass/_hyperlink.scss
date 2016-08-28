@@ -6,10 +6,10 @@ body {
 		font-size: 16px;
 	}
 	@include respond($xlg) {
-		font-size: 18px;
+		// font-size: 18px;
 	}
 	@include respond($huge) {
-		font-size: 20px;
+		font-size: 18px;
 	}
 }
 
@@ -95,8 +95,8 @@ i {
 
 	#nav-logo {
 		svg {
-			height: 1em;
-			width: auto;
+			height: .9em;
+			width: auto !important;
 			fill : #fff;
 			width: 150px;
 		}
@@ -191,12 +191,14 @@ p.lg {
 }
 
 .section {
-	padding-top: (100% - $site-width) / 1.75;
 	position: relative;
 	.title-col {
 		position: static !important;
-		font-size: 2.5em;
+		font-size: 2em;
 		text-align: center;
+		@include respond($md) {
+			font-size: 2.5em;
+		}
 	}
 	.section-title {
 		font-size: 1em;
@@ -248,6 +250,7 @@ hr {
 }
 
 #work-images {
+	padding-top: (100% - $site-width) / 1.75;
 	.inline-grid {
 		margin-bottom: -$gutter;
 	}
@@ -269,28 +272,43 @@ hr {
 }
 
 #services {
+	padding: 2em 0 2em;
 	@include respond($md) {
+		padding: 0;
 		min-height: 100vh;
 	}
-	li {
-		text-align: center;
-		@include respond($md) {
-			// text-align: left;
-			font-size: 1.5em;
+	.service-list {
+		li {
+			text-align: center;
 			line-height: $base-line-height;
+			@include respond($md) {
+				width: 50%;
+			}
+			@include respond($xlg) {
+				width: 33.333%;
+			}
 		}
 	}
 }
 
 #about {
+	padding: 4em 0 2em;
+	.bio-1 {
+		margin-bottom: 3em;
+		@include respond($md) {
+			margin-bottom: 0;
+		}
+	}
 	@include respond($md) {
+		padding: 0;
 		min-height: 100vh;
 	}
 }
 
 #contact {
 	@include respond($md) {
+		padding: 0;
 		min-height: 100vh;
 	}
-	padding: 4em 0 2em;
+	padding: 2em 0 6em;
 }
