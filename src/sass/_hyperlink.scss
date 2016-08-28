@@ -76,7 +76,7 @@ i {
 .top-splash {
 	display: block;
 	height: 100vh;
-	min-height: 100vw;
+	min-height: 300px;
 	background-color: $primary-color;
 	background-color: #000;
 	background-size: cover;
@@ -162,15 +162,19 @@ i {
 	#about {
 		height: 100%;
 		h2 {
-			opacity: 0;
+			// opacity: 0;
 			transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 			line-height: 1.3em;
 			letter-spacing: -.02em;
 			max-width: 21em;
 			display: inline-block;
-			transform: scale(1.1);
+			// transform: scale(1.1);
 			transform-origin: center;
-			@include respond($lg) {
+			font-size: 1.5em;
+			@include respond($md) {
+				font-size: 2em;
+			}
+			@include respond($xlg) {
 				font-size: 2.5em;
 			}
 		}
