@@ -1,6 +1,7 @@
 // Hyperlink Site Specific Styles
 
 $fixed-margin : 4.6875rem;
+$fixed-margin : 5rem;
 
 body {
 	overflow-x: hidden;
@@ -39,6 +40,8 @@ body {
 		height: auto;
 		svg {
 			width: 100%;
+			vertical-align: top;
+	    margin-bottom: 4%;
 			* {
 				fill: #fff;
 			}
@@ -146,16 +149,55 @@ i {
 	.navigation li {
 		position:absolute;
 	  padding: $gutter;
-	  cursor:pointer;
-	  pointer-events:all;
-	  font-size: 1.25em;
+	  cursor: pointer;
+	  pointer-events: all;
+	  font-size: 1.5em;
 	  line-height: 1em;
-	  font-weight: 700;
-	  span {
+	  font-weight: 400;
+	  span,
+	  div {
 	  	display: inline;
 	  }
+	  &:hover .arrow {
+  		.one {
+  			transform: rotate(-45deg) translate3d(4px,-16px,0);
+  		}
+  		.two {
+  			transform: rotate(45deg) translate3d(-4px,-16px,0);
+  		}
+  	}
+	  .arrow {
+	  	width: 2px;
+	    height: 20px;
+	    position: relative;
+	    background: #fff;
+	    display: inline-block;
+	    margin: 0 8px;
+	  	span {
+	  		display: block;
+	  		transition: transform .5s ease-in-out;
+	  	}
+	  	.one {
+	  		width: 14px;
+	  		height: 14px;
+	  		border-bottom: 2px solid #fff;
+	  		transform: rotate(45deg);
+	  		position: absolute;
+	  		top: 6px;
+	  		right: -6px;
+	  	}
+	  	.two {
+	  		width: 14px;
+	  		height: 14px;
+	  		border-bottom: 2px solid #fff;
+	  		top: 6px;
+	  		left: -6px;
+	  		transform: rotate(-45deg);
+	  		position: absolute;
+	  	}
+	  }
 	  @include respond($lg) {
-	  	padding: ($fixed-margin/2 - .5rem) 0;
+	  	padding: ($fixed-margin/2 - .85rem) 0;
 	  	width: $fixed-margin;
 	  	text-align: center;
 	  }
@@ -173,6 +215,13 @@ i {
 		  			fill: #000;
 		  		}
 		  	}
+	  	}
+	  	.arrow {
+	  		background: #000;
+	  		.one,
+	  		.two {
+	  			border-color: #000;
+	  		}
 	  	}
 
 	  }
@@ -195,36 +244,57 @@ i {
 
 	}
 
-	#about {
-		position: absolute;
-    z-index: 1;
-    width: 100%;
-		height: 100%;
-		h2 {
-			opacity: 0;
-			transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-			line-height: 1.3em;
-			letter-spacing: -.02em;
-			max-width: 21em;
-			display: inline-block;
-			// transform: scale(1.1);
-			transform-origin: center;
-			font-size: 1.5em;
-			@include respond($md) {
-				font-size: 2em;
-			}
-			@include respond($xlg) {
-				font-size: 2.5em;
-			}
-		}
-		&.visible {
-			h2 {
-				opacity: 1;
-				transform: scale(1);
-			}
-		}
-	}
+}
 
+.section-title-top {
+	padding: $gutter;
+	text-align: center;
+	position: absolute;
+	left: $gutter;
+	right: $gutter;
+	top: 0;
+	> * {
+		font-size: 1.5em;
+		font-weight: 400;
+		color: #fff;
+	}
+	@include respond($lg) {
+  	padding: ($fixed-margin/2 - .5rem) 0;
+  	text-align: center;
+  	left: $fixed-margin;
+		right: $fixed-margin;
+  }
+  svg {
+  	display: inline-block;
+  	vertical-align: top;
+  	height: 1.125rem;
+  	* {
+  		fill: #fff;
+  	}
+  }
+}
+
+.section-title-bottom {
+	padding: $gutter;
+	text-align: center;
+	position: absolute;
+	left: $gutter;
+	right: $gutter;
+	bottom: 0;
+	@include respond($lg) {
+  	padding: ($fixed-margin/2 - .85rem) 0;
+  	text-align: center;
+  	left: $fixed-margin;
+		right: $fixed-margin;
+  }
+  > * {
+  	font-weight: 400;
+  	color: #fff;
+  	letter-spacing: .125em;
+  	font-size: .875rem;
+  	text-transform: uppercase;
+  	margin: 0;
+  }
 }
 
 .lg p,
@@ -306,7 +376,7 @@ hr {
 		width:100%;
 	}
 	.web-layout {
-		padding: $gutter;
+		padding: $gutter * 2;
 		background: #eee;
 		@include respond($lg) {
 			padding: $fixed-margin;
@@ -321,23 +391,36 @@ hr {
 	}
 	[class^="col-"] {
 		padding-bottom: $gutter;
-		@include respond($lg) {
 			&.no-gutter {
-				padding-right: 0;
+				@include respond($md) {
+					padding-right: 0;
+				}
 				.web-layout {
-					padding-right: $fixed-margin/2;
+					@include respond($md) {
+						padding-right: $gutter;
+					}
+					@include respond($lg) {
+						padding-right: $fixed-margin/2;
+					}
 				}
 				+ .no-gutter {
-					padding-left: 0;
-					padding-right: $gutter/2;
+					@include respond($md) {
+						padding-left: 0;
+						padding-right: $gutter/2;
+					}
 					.web-layout {
-						padding-right: $fixed-margin;
-						padding-left: $fixed-margin/2;
+						@include respond($md) {
+							padding-right: $gutter * 2;
+							padding-left: $gutter;
+						}
+						@include respond($lg) {
+							padding-right: $fixed-margin;
+							padding-left: $fixed-margin/2;
+						}
 					}
 				}
 			}
 		}
-	}
 }
 
 .inner-section {
@@ -352,11 +435,65 @@ hr {
 	}
 }
 
+#about-blurb {
+	padding: 6em 0 3em;
+	@include respond($lg) {
+		padding: 14% 0 7%;
+	}
+	h2 {
+		line-height: 1.4em;
+		letter-spacing: -.02em;
+		max-width: 29em;
+		display: inline-block;
+		transform-origin: center;
+		font-size: 1.5em;
+		margin-bottom: 1.4em;
+		@include respond($md) {
+			font-size: 2em;
+		}
+		@include respond($xlg) {
+			font-size: 2.5vw;
+		}
+	}
+	p {
+		font-size: 1.5em;
+		margin-bottom: 0;
+		@include respond($md) {
+			font-size: 2em;
+		}
+		@include respond($xlg) {
+			font-size: 2.5vw;
+		}
+	}
+}
+
+#about {
+	padding: 3em 0 3em;
+	@include respond($lg) {
+		padding: 7% 0 7%;
+	}
+	[class^="bio-"] {
+		text-align: center;
+		p:last-of-type {
+			margin-bottom: 0;
+		}
+		@include respond($md) {
+			text-align: left;
+			margin-bottom: 0;
+		}
+	}
+	.bio-2 {
+		margin-top: 3em;
+		@include respond($md) {
+			margin-top: 0;
+		}
+	}
+}
+
 #services {
-	padding: 2em 0 2em;
-	@include respond($md) {
-		padding: 0;
-		min-height: 50vh;
+	padding: 3em 0 6em;
+	@include respond($lg) {
+		padding: 7% 0 14%;
 	}
 	.service-list {
 		li {
@@ -372,21 +509,18 @@ hr {
 	}
 }
 
-#about {
-	padding: 4em 0 2em;
-	.bio-1 {
-		margin-bottom: 3em;
-		@include respond($md) {
-			margin-bottom: 0;
+#contact {
+	background: #000;
+	@include font-smooth();
+	a {
+		color: #fff;
+		border-bottom: 1px solid #444;
+		font-weight: 400;
+		font-size: 6vw;
+		&:hover {
+			border-color: #fff;
 		}
 	}
-	@include respond($md) {
-		padding: 0;
-		min-height: 100vh;
-	}
-}
-
-#contact {
 	@include respond($md) {
 		padding: 0;
 		min-height: 100vh;

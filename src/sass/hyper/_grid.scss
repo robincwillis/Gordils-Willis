@@ -86,7 +86,7 @@ $inlinecol: $onecol;
   min-width: 100%;
   text-align: left;
   letter-spacing: -.31em;
-  margin: 0 (-$gutter/2) 0;
+  margin: 0 (-$gutter/2 - .15) 0;
   @include create-cols();
   &.center {
     text-align: center;

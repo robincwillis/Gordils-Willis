@@ -36,17 +36,17 @@ function scrollTo(element, duration) {
 
 function scrollToContact () {
 	var works = document.getElementById("contact");
-	scrollTo(works, 500);
+	scrollTo(works, 1000);
 }
 
 function scrollToWorks () {
 	var works = document.getElementById("work-images");
-	scrollTo(works, 500);
+	scrollTo(works, 1000);
 }
 
 function scrollToTop () {
 	var page = document.getElementById("page");
-	scrollTo(page, 500);
+	scrollTo(page, 1000);
 }
 
 function setNavigationStyle () {
