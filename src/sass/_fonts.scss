@@ -7,6 +7,13 @@
 
 @font-face {
   font-family: 'Brown';
+  src:  url('assets/fonts/lineto-brown-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Brown';
   src:  url('assets/fonts/lineto-brown-light.woff') format('woff');
   font-weight: 100;
   font-style: normal;

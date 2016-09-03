@@ -39,8 +39,8 @@ export default function init(proX,proY,moireSizeX,moireSizeY) {
         var lastX = moireSizeX*Math.cos(i*360/rad*Math.PI/180*proX);
         var lastY = moireSizeY*Math.sin(i*360/rad*Math.PI/180*proY);
 
-        var color1 = "#333";
-        var color2 = "#333";
+        var color1 = "#fff";
+        var color2 = "#fff";
 
         moire.graphics
                 .beginStroke(color1)

@@ -1,5 +1,7 @@
 // Hyperlink Site Specific Styles
 
+$fixed-margin : 4.6875rem;
+
 body {
 	overflow-x: hidden;
 	@include respond($md) {
@@ -13,6 +15,13 @@ body {
 	}
 }
 
+.container {
+	@include respond($lg) {
+		width: 100%;
+		padding: 0 $fixed-margin;
+	}
+}
+
 #pageLoader {
 	position: fixed;
 	top: 0;
@@ -23,10 +32,10 @@ body {
 	background: #000;
 	visibility: visible;
 	opacity: 1;
-	transition: opacity 1s .25s ease-in-out, visibility 1s .25s ease-in-out;
+	transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
 
 	.loader {
-		width: 70%;
+		width: 60%;
 		height: auto;
 		svg {
 			width: 100%;
@@ -93,6 +102,22 @@ i {
 		border: none;
 	}
 
+	#showcase {
+		width: 75vh;
+	  height: 75vh;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+    display: inline-block;
+		#canvas {
+			display: block;
+	    position: absolute;
+	    width: 100%;
+	    height: 100%;
+	    border-radius: 50%;
+		}
+	}
+
 	#nav-logo {
 		svg {
 			height: .9em;
@@ -123,9 +148,17 @@ i {
 	  padding: $gutter;
 	  cursor:pointer;
 	  pointer-events:all;
-	  font-size: 1em;
+	  font-size: 1.25em;
 	  line-height: 1em;
-	  font-weight: 400;
+	  font-weight: 700;
+	  span {
+	  	display: inline;
+	  }
+	  @include respond($lg) {
+	  	padding: ($fixed-margin/2 - .5rem) 0;
+	  	width: $fixed-margin;
+	  	text-align: center;
+	  }
 
 		transition : color, $med-speed, ease-in-out;
 		svg {
@@ -145,20 +178,19 @@ i {
 	  }
 
 		&.top {
-			top:0;
+			top: 0;
 		}
 
 		&.bottom {
-			bottom:0;
+			bottom: 0;
 		}
 
 		&.right {
-			right:0;
-			text-align: right;
+			right: 0;
 		}
 
 		&.left {
-			left:0;
+			left: 0;
 		}
 
 	}
@@ -265,11 +297,23 @@ hr {
 }
 
 #work-images {
-
 	padding-top: (100% - $site-width) / 1.75;
+	@include respond($lg) {
+		padding-top: $fixed-margin;
+	}
 
 	img {
 		width:100%;
+	}
+	.web-layout {
+		padding: $gutter;
+		background: #eee;
+		@include respond($lg) {
+			padding: $fixed-margin;
+		}
+		img {
+			box-shadow: 0 10px 40px rgba(0,0,0,.07);
+		}
 	}
 
 	.inline-grid {
@@ -277,6 +321,22 @@ hr {
 	}
 	[class^="col-"] {
 		padding-bottom: $gutter;
+		@include respond($lg) {
+			&.no-gutter {
+				padding-right: 0;
+				.web-layout {
+					padding-right: $fixed-margin/2;
+				}
+				+ .no-gutter {
+					padding-left: 0;
+					padding-right: $gutter/2;
+					.web-layout {
+						padding-right: $fixed-margin;
+						padding-left: $fixed-margin/2;
+					}
+				}
+			}
+		}
 	}
 }
 
