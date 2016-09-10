@@ -106,12 +106,18 @@ i {
 	}
 
 	#showcase {
-		width: 75vh;
-	  height: 75vh;
+		width: 80%;
+		padding-bottom: 80%;
+	  height: auto;
     overflow: hidden;
     margin: 0 auto;
     position: relative;
     display: inline-block;
+    @include respond($md) {
+    	width: 75vh;
+		  height: 75vh;
+		  padding-bottom: 0;
+    }
 		#canvas {
 			display: block;
 	    position: absolute;
@@ -451,8 +457,8 @@ hr {
 		@include respond($md) {
 			font-size: 2em;
 		}
-		@include respond($xlg) {
-			font-size: 2.5vw;
+		@include respond($lg) {
+			font-size: 2.75vw;
 		}
 	}
 	p {
@@ -461,8 +467,8 @@ hr {
 		@include respond($md) {
 			font-size: 2em;
 		}
-		@include respond($xlg) {
-			font-size: 2.5vw;
+		@include respond($lg) {
+			font-size: 2.75vw;
 		}
 	}
 }
