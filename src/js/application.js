@@ -85,8 +85,27 @@ function setNavigationStyle () {
 
 
 function bindEvents () {
+	var workImages = document.querySelectorAll('#work-images img');
+	
+	document.addEventListener('scroll', () => {
+		// var windowScroll = window.pageYOffset;
+		// console.log('scroll: ' + windowScroll);
 
-	imagesLoaded( 'body', () => {
+		for (var i = 0; i < workImages.length; i++) {
+			var windowScroll = window.pageYOffset;
+			var image = workImages[i];
+			var imageOffset = workImages[i].getBoundingClientRect().top;
+
+			if(imageOffset < + windowScroll + window.innerHeight - (window.innerHeight/3)) {
+				workImages[i].classList.add('loaded')
+			} else {
+				workImages[i].classList.remove('loaded')
+			}
+		}
+
+	});
+
+	imagesLoaded( workImages, () => {
 		console.log('images loaded');
 		console.timeEnd('imagesLoaded');
 		// images have loaded
@@ -153,12 +172,3 @@ document.addEventListener("DOMContentLoaded", () => {
 	resizeCanvas();
 	initMoire();
 });
-
-
-
-
-
-
-
-
-

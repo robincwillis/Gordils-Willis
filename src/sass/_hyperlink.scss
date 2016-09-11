@@ -379,7 +379,14 @@ hr {
 	}
 
 	img {
-		width:100%;
+		width: 100%;
+		transform: translate3d(0, 75px, 0);
+		opacity: 0;
+		transition: transform 1s $ease, opacity 1s $ease;
+		&.loaded {
+			transform: translate3d(0, 0, 0);
+			opacity: 1;
+		}
 	}
 	.web-layout {
 		padding: $gutter * 2;
