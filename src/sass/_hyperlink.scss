@@ -41,7 +41,7 @@ body {
 		svg {
 			width: 100%;
 			vertical-align: top;
-	    margin-bottom: 4%;
+			margin-bottom: 4%;
 			* {
 				fill: #fff;
 			}
@@ -107,17 +107,17 @@ i {
 
 	#showcase {
 		width: 75vh;
-	  height: 75vh;
-    overflow: hidden;
-    margin: 0 auto;
-    position: relative;
-    display: inline-block;
+		height: 75vh;
+		overflow: hidden;
+		margin: 0 auto;
+		position: relative;
+		display: inline-block;
 		#canvas {
 			display: block;
-	    position: absolute;
-	    width: 100%;
-	    height: 100%;
-	    border-radius: 50%;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
 		}
 	}
 
@@ -139,92 +139,92 @@ i {
 		z-index: 3;
 		position: fixed;
 		font-weight: 700;
-    height: 100%;
-    width: 100%;
-    pointer-events:none;
+		height: 100%;
+		width: 100%;
+		pointer-events:none;
 
 
 	}
 
 	.navigation li {
 		position:absolute;
-	  padding: $gutter;
-	  cursor: pointer;
-	  pointer-events: all;
-	  font-size: 1.5em;
-	  line-height: 1em;
-	  font-weight: 400;
-	  span,
-	  div {
-	  	display: inline;
-	  }
-	  &:hover .arrow {
-  		.one {
-  			transform: rotate(-45deg) translate3d(4px,-16px,0);
-  		}
-  		.two {
-  			transform: rotate(45deg) translate3d(-4px,-16px,0);
-  		}
-  	}
-	  .arrow {
-	  	width: 2px;
-	    height: 20px;
-	    position: relative;
-	    background: #fff;
-	    display: inline-block;
-	    margin: 0 8px;
-	  	span {
-	  		display: block;
-	  		transition: transform .5s ease-in-out;
-	  	}
-	  	.one {
-	  		width: 14px;
-	  		height: 14px;
-	  		border-bottom: 2px solid #fff;
-	  		transform: rotate(45deg);
-	  		position: absolute;
-	  		top: 6px;
-	  		right: -6px;
-	  	}
-	  	.two {
-	  		width: 14px;
-	  		height: 14px;
-	  		border-bottom: 2px solid #fff;
-	  		top: 6px;
-	  		left: -6px;
-	  		transform: rotate(-45deg);
-	  		position: absolute;
-	  	}
-	  }
-	  @include respond($lg) {
-	  	padding: ($fixed-margin/2 - .85rem) 0;
-	  	width: $fixed-margin;
-	  	text-align: center;
-	  }
+		padding: $gutter;
+		cursor: pointer;
+		pointer-events: all;
+		font-size: 1.5em;
+		line-height: 1em;
+		font-weight: 400;
+		span,
+		div {
+			display: inline;
+		}
+		&:hover .arrow {
+			.one {
+				transform: rotate(-45deg) translate3d(4px,-16px,0);
+			}
+			.two {
+				transform: rotate(45deg) translate3d(-4px,-16px,0);
+			}
+		}
+		.arrow {
+			width: 2px;
+			height: 20px;
+			position: relative;
+			background: #fff;
+			display: inline-block;
+			margin: 0 8px;
+			span {
+				display: block;
+				transition: transform .5s ease-in-out;
+			}
+			.one {
+				width: 14px;
+				height: 14px;
+				border-bottom: 2px solid #fff;
+				transform: rotate(45deg);
+				position: absolute;
+				top: 6px;
+				right: -6px;
+			}
+			.two {
+				width: 14px;
+				height: 14px;
+				border-bottom: 2px solid #fff;
+				top: 6px;
+				left: -6px;
+				transform: rotate(-45deg);
+				position: absolute;
+			}
+		}
+		@include respond($lg) {
+			padding: ($fixed-margin/2 - .85rem) 0;
+			width: $fixed-margin;
+			text-align: center;
+		}
 
 		transition : color, $med-speed, ease-in-out;
 		svg {
 			transition : fill, $med-speed, ease-in-out;
 		}
 
-	  &.invert {
-	  	color:#000;
-	  	&#nav-logo {
-		  	svg {
-		  		* {
-		  			fill: #000;
-		  		}
-		  	}
-	  	}
-	  	.arrow {
-	  		background: #000;
-	  		.one,
-	  		.two {
-	  			border-color: #000;
-	  		}
-	  	}
+		&.invert {
+			color:#000;
+			&#nav-logo {
+				svg {
+					* {
+						fill: #000;
+					}
+				}
+			}
+			.arrow {
+				background: #000;
+				.one,
+				.two {
+					border-color: #000;
+				}
+			}
 
-	  }
+		}
 
 		&.top {
 			top: 0;
@@ -259,19 +259,19 @@ i {
 		color: #fff;
 	}
 	@include respond($lg) {
-  	padding: ($fixed-margin/2 - .5rem) 0;
-  	text-align: center;
-  	left: $fixed-margin;
+		padding: ($fixed-margin/2 - .5rem) 0;
+		text-align: center;
+		left: $fixed-margin;
 		right: $fixed-margin;
-  }
-  svg {
-  	display: inline-block;
-  	vertical-align: top;
-  	height: 1.125rem;
-  	* {
-  		fill: #fff;
-  	}
-  }
+	}
+	svg {
+		display: inline-block;
+		vertical-align: top;
+		height: 1.125rem;
+		* {
+			fill: #fff;
+		}
+	}
 }
 
 .section-title-bottom {
@@ -282,19 +282,19 @@ i {
 	right: $gutter;
 	bottom: 0;
 	@include respond($lg) {
-  	padding: ($fixed-margin/2 - .85rem) 0;
-  	text-align: center;
-  	left: $fixed-margin;
+		padding: ($fixed-margin/2 - .85rem) 0;
+		text-align: center;
+		left: $fixed-margin;
 		right: $fixed-margin;
-  }
-  > * {
-  	font-weight: 400;
-  	color: #fff;
-  	letter-spacing: .125em;
-  	font-size: .875rem;
-  	text-transform: uppercase;
-  	margin: 0;
-  }
+	}
+	> * {
+		font-weight: 400;
+		color: #fff;
+		letter-spacing: .125em;
+		font-size: .875rem;
+		text-transform: uppercase;
+		margin: 0;
+	}
 }
 
 .lg p,
@@ -339,14 +339,18 @@ hr {
 		text-align: right;
 	}
 	.logo {
-		display: none;
 		@include respond($lg) {
 			// display: inline-block;
 		}
 		svg {
-			height: 34px;
+			// height: 34px;
+			position: absolute;
+			bottom: 0;
+			padding: 1rem;
+			box-sizing: border-box;
+			width: 100%;
 			* {
-				fill: $primary-color;
+				fill: $bg-color;
 			}
 		}
 	}

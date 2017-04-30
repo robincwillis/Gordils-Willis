@@ -5,8 +5,6 @@ import moire from 'moire';
 
 import "sass/main";
 
-console.time('imagesLoaded');
-
 function initMoire() {
 	var proX = Math.floor((Math.random() * 5) + 1);
 	var proY = Math.floor((Math.random() * 5) + 1);;
@@ -71,19 +69,6 @@ function setNavigationStyle () {
 
 }
 
-// function setSplashHeight () {
-// 	$el.css({
-// 			height: $(window).height()
-// 		});
-// }
-
-//show info
-//hide info
-//click selected work
-//click info
-
-
-
 function bindEvents () {
 
 	imagesLoaded( 'body', () => {
@@ -144,21 +129,10 @@ function bindEvents () {
 
 }
 
-//Load App
 document.addEventListener("DOMContentLoaded", () => {
 	var div = document.createElement('div');
-	div.innerHTML = mainTemplate({username: "teeeeest"});
+	div.innerHTML = mainTemplate({});
 	document.body.appendChild(div);
 	bindEvents();
-	resizeCanvas();
-	initMoire();
+
 });
-
-
-
-
-
-
-
-
-
